@@ -74,9 +74,9 @@ Edit `config.nix` to customize your setup:
 
 ### Included Tools
 
-- **Development**: volta (Node.js), git, gh (GitHub CLI), uv (Python), claude-code, gemini-cli
-- **Shell**: bash with Volta integration
-- **Auto-setup**: GitHub CLI authentication, Node.js/pnpm installation
+- **Development**: Node.js, pnpm, git, gh (GitHub CLI), uv (Python), claude-code, gemini-cli
+- **Shell**: bash configuration
+- **Auto-setup**: GitHub CLI authentication
 
 ## 🔧 Usage
 
@@ -104,8 +104,7 @@ nix flake update
 ├── config.nix           # Personal configuration (gitignored)
 ├── config.nix.example   # Configuration template
 ├── scripts/             # Setup scripts
-│   ├── setup-github.sh
-│   └── setup-volta.sh
+│   └── setup-github.sh
 └── .gitignore          # Git ignore rules
 ```
 

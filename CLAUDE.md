@@ -50,12 +50,11 @@ nix develop
 
 ### Package Management
 - Uses nixpkgs unstable channel for latest packages
-- Installs development tools: volta (Node.js version manager), git, GitHub CLI, claude-code, gemini-cli
-- Allows unfree packages (configured in home.nix:5)
+- Installs development tools: Node.js, pnpm, git, GitHub CLI, claude-code, gemini-cli
+- Allows unfree packages (configured in home.nix:8)
 
 ### Shell Configuration
-- Configures bash with Volta initialization
-- Sets up PATH to include Volta-managed Node.js tools
+- Configures bash for development environment
 
 ### Git Configuration
 - User-specific Git settings loaded from config.nix (name, email, editor preferences)
@@ -63,14 +62,12 @@ nix develop
 - Personal information is kept separate from the main configuration
 
 ### Activation Scripts
-The configuration includes two important activation scripts that run during home-manager switch:
+The configuration includes an activation script that runs during home-manager switch:
 
-1. **GitHub CLI Setup** (home.nix:91-140): Automatically authenticates with GitHub CLI using web-based OAuth
-2. **Volta Node.js Setup** (home.nix:143-199): Installs Node.js LTS and pnpm via Volta if not already present
+1. **GitHub CLI Setup** (home.nix:53-59): Automatically authenticates with GitHub CLI using web-based OAuth
 
 ### Environment Variables
-- Configures Volta environment variables for Node.js version management
-- Sets up proper PATH to include Volta-managed tools
+- Basic environment configuration for development tools
 
 ## Special Considerations
 
