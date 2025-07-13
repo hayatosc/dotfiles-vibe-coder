@@ -1,6 +1,6 @@
 # Environment configuration
 .env
-config.nix
+set-env.sh
 
 # Nix build artifacts
 result

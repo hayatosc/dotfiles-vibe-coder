@@ -34,11 +34,12 @@ else
 fi
 cd ~/.config/home-manager
 
-# Create config.nix from template if it doesn't exist
-if [ ! -f config.nix ]; then
-    echo "Creating config.nix from template..."
-    cp config.nix.example config.nix
-    echo "Please edit config.nix with your personal information before running home-manager switch"
+# Create set-env.sh from templates if they don't exist
+
+if [ ! -f set-env.sh ]; then
+    echo "Creating set-env.sh from template..."
+    cp set-env-example.sh set-env.sh
+    echo "Please edit set-env.sh with your personal information"
 fi
 
 echo "=== Setup Complete ==="
@@ -46,6 +47,8 @@ echo "Home Manager has been successfully installed and configured!"
 echo "Configuration location: /root/.config/home-manager"
 echo ""
 echo "To set up your environment:"
-echo "1. Edit ~/.config/home-manager/config.nix with your personal settings."
-echo "2. Run the following command to apply the configuration:"
-echo "   home-manager switch"
+echo "1. Edit ~/.config/home-manager/set-env.sh with your personal settings."
+echo "2. Source the environment variables:"
+echo "   source ~/.config/home-manager/set-env.sh"
+echo "3. Run the following command to apply the configuration:"
+echo "   home-manager switch --flake ."
