@@ -27,12 +27,12 @@ If you prefer manual setup:
 2. **Clone and configure**:
    ```bash
    git clone <repository-url>
-   cd home-manager-config
+   cd dotfiles-vibe-coder
    ```
 
 3. **Configure personal settings**:
    ```bash
-   cp config.nix.example config.nix
+   # Create your personal configuration based on the example
    # Edit config.nix with your personal information
    nano config.nix
    ```
@@ -70,7 +70,7 @@ Edit `config.nix` to customize your setup:
 
 ### Included Tools
 
-- **Development**: Node.js, pnpm, git, gh (GitHub CLI), uv (Python), claude-code, gemini-cli
+- **Development**: Node.js, pnpm, git, gh (GitHub CLI), uv (Python), tailscale, claude-code, gemini-cli
 - **Shell**: bash configuration
 - **Auto-setup**: GitHub CLI authentication
 
@@ -98,7 +98,8 @@ nix flake update
 ├── flake.nix            # Main flake configuration
 ├── home.nix             # Home Manager module
 ├── config.nix           # Personal configuration (gitignored)
-├── config.nix.example   # Configuration template
+├── set-env.sh           # Environment setup script
+├── set-env-example.sh   # Environment setup template
 ├── scripts/             # Setup scripts
 │   └── setup-github.sh
 └── .gitignore          # Git ignore rules

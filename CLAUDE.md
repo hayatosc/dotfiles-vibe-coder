@@ -11,7 +11,8 @@ This is a Nix Home Manager configuration repository that manages user environmen
 - `flake.nix` - Main Nix flake configuration defining inputs (nixpkgs, home-manager) and outputs
 - `home.nix` - Home Manager configuration module containing package lists, program configurations, and activation scripts
 - `config.nix` - Personal configuration file (gitignored) containing user-specific settings like Git user info
-- `config.nix.example` - Template for personal configuration that can be safely shared
+- `set-env.sh` - Environment setup script
+- `set-env-example.sh` - Environment setup template
 - `flake.lock` - Lock file pinning specific versions of dependencies
 
 ## Common Commands
@@ -50,7 +51,7 @@ nix develop
 
 ### Package Management
 - Uses nixpkgs unstable channel for latest packages
-- Installs development tools: Node.js, pnpm, git, GitHub CLI, claude-code, gemini-cli
+- Installs development tools: Node.js, pnpm, git, GitHub CLI, uv, tailscale, claude-code, gemini-cli
 - Allows unfree packages (configured in home.nix:8)
 
 ### Shell Configuration
@@ -64,7 +65,7 @@ nix develop
 ### Activation Scripts
 The configuration includes an activation script that runs during home-manager switch:
 
-1. **GitHub CLI Setup** (home.nix:53-59): Automatically authenticates with GitHub CLI using web-based OAuth
+1. **GitHub CLI Setup** (home.nix:53-59): Copies setup script to `$HOME/.local/bin/setup-github.sh` and runs it during activation to authenticate with GitHub CLI using web-based OAuth
 
 ### Environment Variables
 - Basic environment configuration for development tools
@@ -72,7 +73,7 @@ The configuration includes an activation script that runs during home-manager sw
 ## Special Considerations
 
 - Personal configuration is separated into config.nix (gitignored) for privacy
-- config.nix.example provides a template for new users to customize
+- set-env-example.sh provides a template for environment setup
 - User settings (username, home directory, Git info) are loaded from config.nix
 - Uses Home Manager version specified in config.nix
 - Activation scripts include dry-run support and error handling
@@ -87,6 +88,6 @@ curl -fsSL https://raw.githubusercontent.com/hayatosc/dotfiles-vibe-coder/refs/h
 ```
 
 ### Manual Setup
-1. Copy the template: `cp config.nix.example config.nix`
+1. Create your personal configuration file: `config.nix`
 2. Edit config.nix with your personal information
 3. Apply the configuration: `home-manager switch --flake .`
