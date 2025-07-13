@@ -17,8 +17,6 @@ The setup script will:
 - Install Nix using Determinate Nix Installer
 - Install Home Manager
 - Set up your personal configuration
-- Apply the Home Manager configuration
-- Initialize a git repository
 
 ### Manual Setup
 
