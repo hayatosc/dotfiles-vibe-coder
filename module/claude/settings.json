@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "List(*)",
+      "Fetch(*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)"
+    ],
+    "deny": [
+      "Bash(rm:*)"
+    ]
+  }
+}
