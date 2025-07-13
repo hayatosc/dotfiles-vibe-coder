@@ -58,14 +58,6 @@ in
     fi
   '';
 
-  home.activation.setupCloudflared = config.lib.dag.entryAfter ["installPackages"] ''
-    if [[ -v DRY_RUN ]]; then
-      echo "Would setup Cloudflared"
-    else
-      $HOME/.local/bin/setup-cloudflared.sh
-    fi
-  '';
-
 
   programs.home-manager.enable = true;
 }
