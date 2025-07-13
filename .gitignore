@@ -1,0 +1,10 @@
+# Environment configuration
+.env
+config.nix
+
+# Nix build artifacts
+result
+result-*
+
+# Local configuration files
+*.local.*

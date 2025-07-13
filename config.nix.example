@@ -1,0 +1,18 @@
+# Personal configuration template - copy to config.nix and customize
+{
+  user = {
+    name = "your-username";
+    homeDirectory = "/home/your-username";
+  };
+  
+  git = {
+    userName = "Your Full Name";
+    userEmail = "your.email@example.com";
+    defaultBranch = "main";
+    editor = "nano";
+  };
+  
+  nix = {
+    stateVersion = "25.05";
+  };
+}
