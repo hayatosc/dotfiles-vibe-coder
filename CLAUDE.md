@@ -10,9 +10,9 @@ This is a Nix Home Manager configuration repository that manages user environmen
 
 - `flake.nix` - Main Nix flake configuration defining inputs (nixpkgs, home-manager) and outputs
 - `home.nix` - Home Manager configuration module containing package lists, program configurations, and activation scripts
-- `config.nix` - Personal configuration file (gitignored) containing user-specific settings like Git user info
-- `set-env.sh` - Environment setup script
-- `set-env-example.sh` - Environment setup template
+- `config.nix` - Personal configuration file that reads environment variables with fallback defaults
+- `set-env.sh` - Environment setup script (gitignored) containing personal settings
+- `set-env-example.sh` - Environment setup template for sharing
 - `flake.lock` - Lock file pinning specific versions of dependencies
 
 ## Common Commands
@@ -72,10 +72,11 @@ The configuration includes an activation script that runs during home-manager sw
 
 ## Special Considerations
 
-- Personal configuration is separated into config.nix (gitignored) for privacy
+- Personal configuration is separated into set-env.sh (gitignored) for privacy
 - set-env-example.sh provides a template for environment setup
-- User settings (username, home directory, Git info) are loaded from config.nix
-- Uses Home Manager version specified in config.nix
+- User settings (username, home directory, Git info) are loaded from environment variables via config.nix
+- config.nix reads environment variables with getEnv function and fallback defaults
+- Uses Home Manager version specified via NIX_STATE_VERSION environment variable
 - Activation scripts include dry-run support and error handling
 - Configuration automatically handles tool installation and authentication during deployment
 
@@ -88,6 +89,7 @@ curl -fsSL https://raw.githubusercontent.com/hayatosc/dotfiles-vibe-coder/refs/h
 ```
 
 ### Manual Setup
-1. Create your personal configuration file: `config.nix`
-2. Edit config.nix with your personal information
-3. Apply the configuration: `home-manager switch --flake .`
+1. Copy the environment template: `cp set-env-example.sh set-env.sh`
+2. Edit set-env.sh with your personal information
+3. Source the environment: `source ./set-env.sh`
+4. Apply the configuration: `home-manager switch --flake .`

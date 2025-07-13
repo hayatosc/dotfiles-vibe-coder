@@ -32,9 +32,12 @@ If you prefer manual setup:
 
 3. **Configure personal settings**:
    ```bash
-   # Create your personal configuration based on the example
-   # Edit config.nix with your personal information
-   nano config.nix
+   # Copy and customize the environment script
+   cp set-env-example.sh set-env.sh
+   nano set-env.sh
+   
+   # Source the environment variables
+   source ./set-env.sh
    ```
 
 4. **Apply configuration**:
@@ -46,27 +49,22 @@ If you prefer manual setup:
 
 ### Personal Settings
 
-Edit `config.nix` to customize your setup:
+The configuration uses environment variables that can be set using the `set-env.sh` script:
 
-```nix
-{
-  user = {
-    name = "your-username";
-    homeDirectory = "/home/your-username";
-  };
-  
-  git = {
-    userName = "Your Full Name";
-    userEmail = "your.email@example.com";
-    defaultBranch = "main";
-    editor = "nano";
-  };
-  
-  nix = {
-    stateVersion = "25.05";
-  };
-}
-```
+1. **Copy and customize the environment script**:
+   ```bash
+   cp set-env-example.sh set-env.sh
+   # Edit set-env.sh with your personal information
+   nano set-env.sh
+   ```
+
+2. **Source the environment script before building**:
+   ```bash
+   source ./set-env.sh
+   home-manager switch --flake .
+   ```
+
+The `config.nix` file reads these environment variables with fallback defaults.
 
 ### Included Tools
 
@@ -97,9 +95,11 @@ nix flake update
 ├── setup.sh             # Automated setup script
 ├── flake.nix            # Main flake configuration
 ├── home.nix             # Home Manager module
-├── config.nix           # Personal configuration (gitignored)
-├── set-env.sh           # Environment setup script
+├── config.nix           # Personal configuration (reads environment variables)
+├── set-env.sh           # Environment setup script (gitignored)
 ├── set-env-example.sh   # Environment setup template
+├── module/              # Module configurations
+│   └── claude/          # Claude Code configuration and commands
 ├── scripts/             # Setup scripts
 │   └── setup-github.sh
 └── .gitignore          # Git ignore rules
@@ -107,13 +107,14 @@ nix flake update
 
 ## 🔒 Security
 
-- Personal information is stored in `config.nix` (gitignored)
-- `config.nix.example` provides a safe template for sharing
+- Personal information is stored in `set-env.sh` (gitignored)
+- `set-env-example.sh` provides a safe template for sharing
+- `config.nix` reads environment variables with safe defaults
 - No personal data is committed to the repository
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch
-3. Ensure `config.nix.example` reflects any new configuration options
+3. Ensure `set-env-example.sh` reflects any new configuration options
 4. Submit a pull request
