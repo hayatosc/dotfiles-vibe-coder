@@ -20,13 +20,13 @@ This is a Nix Home Manager configuration repository that manages user environmen
 ### Building and Applying Configuration
 ```bash
 # Build the Home Manager configuration
-nix build .#homeConfigurations.root.activationPackage
+source ./set-env.sh && nix build .#homeConfigurations.root.activationPackage --impure
 
 # Apply the configuration (switch to new generation)
-home-manager switch --flake .
+source ./set-env.sh && home-manager switch --flake . --impure
 
 # Build without switching (test configuration)
-home-manager build --flake .
+source ./set-env.sh && home-manager build --flake . --impure
 
 # Show current generation
 home-manager generations
@@ -35,16 +35,16 @@ home-manager generations
 ### Development and Testing
 ```bash
 # Check flake configuration
-nix flake check
+source ./set-env.sh && nix flake check --impure
 
 # Update flake inputs
 nix flake update
 
 # Show what packages would be installed
-nix flake show
+source ./set-env.sh && nix flake show --impure
 
 # Enter development shell with packages available
-nix develop
+source ./set-env.sh && nix develop --impure
 ```
 
 ## Architecture and Key Components
@@ -79,6 +79,7 @@ The configuration includes an activation script that runs during home-manager sw
 - Uses Home Manager version specified via NIX_STATE_VERSION environment variable
 - Activation scripts include dry-run support and error handling
 - Configuration automatically handles tool installation and authentication during deployment
+- **IMPORTANT**: All Nix commands that use this configuration must include `--impure` flag and source the environment variables first with `source ./set-env.sh`
 
 ## Setup Instructions
 
@@ -92,4 +93,4 @@ curl -fsSL https://raw.githubusercontent.com/hayatosc/dotfiles-vibe-coder/refs/h
 1. Copy the environment template: `cp set-env-example.sh set-env.sh`
 2. Edit set-env.sh with your personal information
 3. Source the environment: `source ./set-env.sh`
-4. Apply the configuration: `home-manager switch --flake .`
+4. Apply the configuration: `source ./set-env.sh && home-manager switch --flake . --impure`

@@ -42,7 +42,7 @@ If you prefer manual setup:
 
 4. **Apply configuration**:
    ```bash
-   home-manager switch --flake .
+   source ./set-env.sh && home-manager switch --flake . --impure
    ```
 
 ## ⚙️ Configuration
@@ -60,8 +60,7 @@ The configuration uses environment variables that can be set using the `set-env.
 
 2. **Source the environment script before building**:
    ```bash
-   source ./set-env.sh
-   home-manager switch --flake .
+   source ./set-env.sh && home-manager switch --flake . --impure
    ```
 
 The `config.nix` file reads these environment variables with fallback defaults.
@@ -76,13 +75,13 @@ The `config.nix` file reads these environment variables with fallback defaults.
 
 ```bash
 # Apply configuration
-home-manager switch --flake .
+source ./set-env.sh && home-manager switch --flake . --impure
 
 # Build without applying
-home-manager build --flake .
+source ./set-env.sh && home-manager build --flake . --impure
 
 # Check configuration
-nix flake check
+source ./set-env.sh && nix flake check --impure
 
 # Update dependencies
 nix flake update
