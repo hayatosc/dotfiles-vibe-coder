@@ -1,4 +1,4 @@
-# Nix Home Manager Configuration
+# dotfiles-vibe-coder
 
 A declarative Home Manager configuration for managing user environments on Linux systems.
 
@@ -8,11 +8,9 @@ A declarative Home Manager configuration for managing user environments on Linux
 
 The easiest way to get started is using the automated setup script:
 
-1. **Clone and run setup**:
+1. **Run the setup script directly**:
    ```bash
-   git clone <repository-url>
-   cd home-manager-config
-   ./setup.sh
+   curl -fsSL https://raw.githubusercontent.com/hayatosc/dotfiles-vibe-coder/refs/heads/main/setup.sh | bash
    ```
 
 The setup script will:

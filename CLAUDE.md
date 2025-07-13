@@ -80,6 +80,13 @@ The configuration includes an activation script that runs during home-manager sw
 
 ## Setup Instructions
 
+### Automated Setup (Recommended)
+Run the setup script directly from GitHub:
+```bash
+curl -fsSL https://raw.githubusercontent.com/hayatosc/dotfiles-vibe-coder/refs/heads/main/setup.sh | bash
+```
+
+### Manual Setup
 1. Copy the template: `cp config.nix.example config.nix`
 2. Edit config.nix with your personal information
 3. Apply the configuration: `home-manager switch --flake .`
