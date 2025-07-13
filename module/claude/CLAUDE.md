@@ -113,6 +113,13 @@ When information is insufficient, actively request:
 - Choose between file operations vs. broad searches based on specific needs
 - Use targeted tools for specific types of analysis
 - Batch operations to reduce overhead and improve efficiency
+- When command execution is denied (blocked by hooks or security restrictions), explore alternative approaches or ask the user to execute the command manually if no alternatives exist
+
+### File Creation Rules
+- Place all intermediate files created during sessions in `.claude/tmp/` directory
+- Create final outputs initially in `.claude/tmp/` before moving to their final destination
+- Use the temporary directory for drafts, work-in-progress files, and session artifacts
+- This ensures proper organization and allows for cleanup of temporary files
 
 ### Problem-Solving Methodology
 - Conduct systematic investigation of issues before proposing solutions

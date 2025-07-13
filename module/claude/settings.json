@@ -1,9 +1,15 @@
 {
+  "default": "acceptEdits",
   "permissions": {
     "allow": [
       "List(*)",
       "Fetch(*)",
       "Bash(ls:*)",
+      "Bash(cd:*)",
+      "Bash(pwd:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(diff:*)",
       "Bash(cat:*)",
       "Bash(cp:*)",
       "Bash(mv:*)",
@@ -12,10 +18,16 @@
       "Bash(git status:*)",
       "Bash(git add:*)",
       "Bash(git diff:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh repo:*)",
+      "Bash(rm:*/.claude/tmp/*)"
     ],
     "deny": [
-      "Bash(rm:*)"
+      "Bash(sudo:*)",
+      "Bash(rm:*)",
+      "Read(.env.*)"
     ]
   }
 }
