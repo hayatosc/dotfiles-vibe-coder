@@ -1,5 +1,5 @@
 {
-  "default": "acceptEdits",
+  "defaultMode": "acceptEdits",
   "permissions": {
     "allow": [
       "List(*)",
@@ -21,8 +21,7 @@
       "Bash(git log:*)",
       "Bash(gh pr:*)",
       "Bash(gh issue:*)",
-      "Bash(gh repo:*)",
-      "Bash(rm:*/.claude/tmp/*)"
+      "Bash(gh repo:*)"
     ],
     "deny": [
       "Bash(sudo:*)",
