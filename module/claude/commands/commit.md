@@ -40,7 +40,12 @@ type: 'command'
   - If changes need to be pushed (ahead of remote), prompt: "The commit was successful. Would you like me to push these changes to the remote repository?"
   - Only push after explicit confirmation
 - If I tell you that you can push the changes, you can run `git push` directly without asking for permission
-- Do NOT add Claude co-authorship footer to commits
+- ALWAYS add Claude co-authorship footer to commits:
+  ```
+  🤖 Generated with [Claude Code](https://claude.ai/code)
+  
+  Co-Authored-By: Claude <noreply@anthropic.com>
+  ```
 - Read ONLY staged files
 
 ## Examples of Good Commit Messages
