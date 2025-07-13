@@ -8,7 +8,11 @@
       "Bash(cp:*)",
       "Bash(mv:*)",
       "Bash(mkdir:*)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
     ],
     "deny": [
       "Bash(rm:*)"
