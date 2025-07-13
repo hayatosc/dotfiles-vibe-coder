@@ -25,7 +25,7 @@ in
   home.file = {
     ".claude/setting.json".source = ./module/claude/setting.json;
     ".claude/CLAUDE.md".source = ./module/claude/CLAUDE.md;
-    ".claude/commands".source = ./module/claude/commands
+    ".claude/commands".source = ./module/claude/commands;
   };
 
   home.sessionVariables = {
