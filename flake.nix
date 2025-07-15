@@ -14,9 +14,15 @@
     { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${system}.extend (final: prev: {
+        container-use = final.callPackage ./module/container-use {};
+      });
     in
     {
+      packages.${system} = {
+        container-use = pkgs.container-use;
+      };
+
       homeConfigurations."root" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

@@ -18,8 +18,11 @@ in
     gh
     uv
     tailscale
+    docker
+    docker-compose
     claude-code
     gemini-cli
+    container-use
   ];
 
   home.file = {
