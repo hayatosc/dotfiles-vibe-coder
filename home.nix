@@ -14,6 +14,8 @@ in
   home.packages = with pkgs; [
     nodejs
     nodePackages.pnpm
+    bun
+    deno
     git
     gh
     uv
