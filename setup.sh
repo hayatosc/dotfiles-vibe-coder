@@ -25,6 +25,8 @@ nix run home-manager/master -- init --switch
 # Clone dotfiles repository
 echo "Cloning dotfiles repository..."
 
+rm -rf ~/.config/home-manager
+
 # Check if git is available, if not use nix to run it
 if ! command -v git &> /dev/null; then
     echo "Git not found, using nix run..."
